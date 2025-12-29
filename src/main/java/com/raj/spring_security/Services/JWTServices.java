@@ -1,6 +1,5 @@
 package com.raj.spring_security.Services;
 
-import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Date;
@@ -43,7 +42,7 @@ public class JWTServices {
                 .add(claims)
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis()+60*60*30))
+                .expiration(new Date(System.currentTimeMillis()+60*60*30*5))
                 .and().signWith(getKey())
                 .compact();
     }

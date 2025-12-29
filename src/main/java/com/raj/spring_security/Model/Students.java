@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Students {
@@ -14,7 +14,7 @@ public class Students {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message="Invalid Name")
+   @NotBlank(message = "Name cannot be blank")
     private String name;
 
     @Email
@@ -49,7 +49,7 @@ public class Students {
 
     @Override
     public String toString(){
-        return String.format("Name of the Student is %s /n Email of the studenst is %s", name , email);
+        return String.format("Name of the Student is %s \n Email of the studenst is %s", name , email);
     }
 
 }
